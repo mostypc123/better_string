@@ -76,7 +76,7 @@ static inline string* char_to_str(char ch) {
 
 /* Return the lenght of a string. */
 static inline size_t str_len(string* st) {
-  return st->size;
+  return strlen(st->data);
 }
 
 /* Function to free the string in one call. */
