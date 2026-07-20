@@ -59,17 +59,21 @@ static inline char* c_str(const string* st) {
 }
 
 /* Turns a cstring to a string.
- * As in str_init, caller needs to free(). */
+ * As in str_init, caller needs to free(). 
+ * Returns NULL on failure. */
 static string* c_str_to_str(char* cstr) {
   string* result = str_init();
+  if (result == NULL) return NULL;
   str_add(result, cstr);
   return result;
 }
 
 /* Turns a char into a string.
- * As in str_init, caller needs to free(). */
+ * As in str_init, caller needs to free(). 
+ * Returns NULL on failure. */
 static inline string* char_to_str(char ch) {
   string* result = str_init();
+  if (result == NULL) return NULL;
   str_addc(result, ch);
   return result;
 }

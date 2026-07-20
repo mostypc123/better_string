@@ -22,6 +22,7 @@ To create a new string:
 
 ```c
 string* my_str = str_init();
+if (my_str == NULL) puts("alloc failed");
 str_add(my_str, "Hello World!");
 ```
 
