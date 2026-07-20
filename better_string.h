@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+  https://github.com/mostypc123/better_string
+  licensed under the MIT license
+*/
+
 typedef struct {
   char* data;
   size_t size;
