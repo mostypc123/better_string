@@ -10,7 +10,7 @@ typedef struct {
 
 /* Init a string. Returns NULL on failure. 
  * Strings must be freed by using str_free().*/
-string* str_init() {
+static string* str_init() {
   // first allocate initial data
   char* data = malloc(1);
   if (data == NULL) return NULL;
@@ -29,7 +29,7 @@ string* str_init() {
 
 /* Resize a string and put a character at the end.
  * Returns 0 on success and -1 on failure. */
-int str_addc(string* st, char ch) {
+static int str_addc(string* st, char ch) {
   size_t len = strlen(st->data);
   char* new_data = realloc(st->data, st->size + 1);
   if (new_data == NULL) return -1;
@@ -44,7 +44,7 @@ int str_addc(string* st, char ch) {
 
 /* str_addc() wrapper that adds a cstring to a string.
  * Same return values as in str_addc. */
-int str_add(string* st, char* cstr) {
+static int str_add(string* st, char* cstr) {
   char *p_cstr = cstr;
   while (*p_cstr) {
     if (str_addc(st, *p_cstr) == -1) return -1;
@@ -60,7 +60,7 @@ static inline char* c_str(const string* st) {
 
 /* Turns a cstring to a string.
  * As in str_init, caller needs to free(). */
-string* c_str_to_str(char* cstr) {
+static string* c_str_to_str(char* cstr) {
   string* result = str_init();
   str_add(result, cstr);
   return result;
