@@ -60,7 +60,7 @@ static int str_add(string* st, char* cstr) {
 
 /* Turn a string into a cstring. */
 static inline char* c_str(const string* st) {
-  return st->data;
+  return strdup(st->data);
 }
 
 /* Turns a cstring to a string.
